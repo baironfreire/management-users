@@ -4,15 +4,14 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
-use App\Services\Contracts\UserServiceInterface;
 
 class ListUsers extends Component
 {
     public $users;
 
-    public function mount(UserServiceInterface $userService)
+    public function mount($users)
     {
-        $this->users = $userService->getAllUsers();
+        $this->users = $users;
     }
 
     public function render()

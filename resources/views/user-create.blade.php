@@ -13,6 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+                    <livewire:user-create-form/>
                 </div>
             </div>
         </div>

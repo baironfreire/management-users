@@ -13,20 +13,15 @@ class UserForm extends Form
     protected $userController;
     //
     public ?User $user;
- 
-    #[Validate('required|min:5')]
+
     public $name = '';
  
-    #[Validate('min:5')]
     public $last_name = '';
 
-    #[Validate('required|min:5')]
     public $email = '';
 
-    #[Validate('min:5')]
     public $phone_number = '';
 
-    #[Validate('min:5')]
     public $password = '';
 
     public function __construct($id, $data)
@@ -55,7 +50,7 @@ class UserForm extends Form
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',
-                'email' => 'required|min:5',
+                'email' => 'required|min:5|email',
                 'phone_number' => 'min:5',
             ])
         );
@@ -66,7 +61,7 @@ class UserForm extends Form
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',
-                'email' => 'required|min:5',
+                'email' => 'required|min:5|email',
                 'phone_number' => 'min:5',
                 'password' => 'required|min:5', 
             ])

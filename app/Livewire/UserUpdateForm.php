@@ -21,7 +21,7 @@ class UserUpdateForm extends Component
     {
         $this->form->update();
  
-        return $this->redirect('/home');
+        return $this->redirect('/');
     }
 
     public function render()
@@ -31,6 +31,6 @@ class UserUpdateForm extends Component
     
     public function cancel()
     {
-        return redirect('/home');
+        return redirect('/');
     }
 }

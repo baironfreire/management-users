@@ -18,6 +18,7 @@
                 <a href="{{ route('user.edit', $user->id) }}">
                     <span><i class="fas fa-pencil-alt"></i></span>
                 </a>
+
                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')

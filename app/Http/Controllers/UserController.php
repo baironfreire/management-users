@@ -17,9 +17,14 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    public function index(){
+        $users =  $this->userService->getAllUsers();
+        return view('user-index', ['users' => $users]);
+    }
+
     public function create()
     {
-        return view('user-register');
+        return view('user-create');
     }
 
     public function edit($id)
@@ -39,11 +44,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if(!$user) {
-            return redirect()->route('users.index')->with('error', 'Usuario no encontrado');
+            return redirect('/')->with('error', 'Usuario no encontrado');
         }
 
-        $user->delete();
-        return redirect()->route('home');
+        $this->userService->deleteUser($id);
+        return redirect('/');
     }
     
 }
