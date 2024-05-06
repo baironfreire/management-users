@@ -5,18 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\Contracts\UserServiceInterface;
 
 class UserController extends Controller
 {
-    //
-    public function index()
-    {
-        // Lógica para mostrar una lista de usuarios
-    }
+    protected $userService;
 
-    public function show($id)
+    public function __construct(UserServiceInterface $userService)
     {
-        // Lógica para mostrar un usuario específico
+        $this->middleware('auth');
+        $this->userService = $userService;
     }
 
     public function create()
@@ -24,28 +22,17 @@ class UserController extends Controller
         return view('user-register');
     }
 
-
-    public function store(Request $request)
-    {
-        User::create([
-            'name' => $request['name'],
-            'last_name' => $request['last_name'],
-            'email' => $request['email'],
-            'phone_number' => $request['phone_number'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->route('home');
-    }
-
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('user-update', ['user' => $user]);
+        return view('user-update', ['user' => $this->userService->getUserById($id)]);
     }
 
-    public function update(Request $request, $id)
-    {
-        // Lógica para actualizar un usuario en la base de datos
+    public function store($data){
+        return $this->userService->createUser($data);
+    }
+
+    public function update($id, $data){
+        return $this->userService->updateUser($id, $data);
     }
 
     public function destroy($id)

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @livewire('list-users')
+                    <livewire:list-users :userService="$userService" />
                 </div>
             </div>
         </div>

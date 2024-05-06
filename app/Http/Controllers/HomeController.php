@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Services\Contracts\UserServiceInterface;
+
 class HomeController extends Controller
 {
     /**
@@ -11,9 +13,12 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    protected $userService;
+
+    public function __construct(UserServiceInterface $userService)
     {
         $this->middleware('auth');
+        $this->userService = $userService;
     }
 
     /**
@@ -23,6 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', ['userService' => $this->userService]);
     }
 }

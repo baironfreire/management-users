@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    @livewire('user-create-form')
+                    <livewire:user-create-form/>
+                    
                 </div>
             </div>
         </div>

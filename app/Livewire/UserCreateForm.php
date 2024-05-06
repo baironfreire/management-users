@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use App\Livewire\Forms\UserForm;
-;
+
 
 class UserCreateForm extends Component
 {

@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Forms;
 
+use Illuminate\Support\Facades\App;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Models\User;
+use App\Http\Controllers\UserController;
 
 class UserForm extends Form
 {
+    protected $userController;
     //
     public ?User $user;
  
@@ -23,6 +26,14 @@ class UserForm extends Form
     #[Validate('min:5')]
     public $phone_number = '';
 
+    #[Validate('min:5')]
+    public $password = '';
+
+    public function __construct($id, $data)
+    {
+        parent::__construct($id, $data);
+        $this->userController = App::make(UserController::class); // Crea una instancia del controlador
+    }
 
     public function setUser(User $user)
     {
@@ -39,7 +50,8 @@ class UserForm extends Form
 
     public function update()
     {
-        $this->user->update(
+        $this->userController->update(
+            $this->user->id,
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',
@@ -50,13 +62,13 @@ class UserForm extends Form
     }
 
     public function save(){
-        $this->user->create(
+        $this->userController->store(
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',
                 'email' => 'required|min:5',
                 'phone_number' => 'min:5',
-                'password' => 'required|min:5'
+                'password' => 'required|min:5', 
             ])
         );
     }
