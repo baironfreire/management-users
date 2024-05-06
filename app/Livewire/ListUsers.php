@@ -12,12 +12,12 @@ class ListUsers extends Component
 
     public function mount(UserServiceInterface $userService)
     {
-        $this->users = $userService->getAllUsers(); 
+        $this->users = $userService->getAllUsers();
     }
 
     public function render()
     {
-        $columns = ['Nro', 'Name', 'Last Name', 'Email', 'Phone Number', 'Status', 'Actions'];
+        $columns = ['Nro', 'Name', 'Last Name', 'Email', 'Phone Number', 'Actions'];
         return view('livewire.list-users', ['columns' => $columns]);
     }
 }

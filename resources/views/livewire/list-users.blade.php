@@ -14,13 +14,16 @@
             <td>{{ $user->last_name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->phone_number }}</td>
-            <td>{{ $user->status }}</td>
-            <td>
-                <a href="{{ route('user.edit', $user->id) }}">Editar</a>
+            <td class="d-flex justify-content-around">
+                <a href="{{ route('user.edit', $user->id) }}">
+                    <span><i class="fas fa-pencil-alt"></i></span>
+                </a>
                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit">Eliminar</button>
+                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0;">
+                        <i class="fas fa-trash-alt" style="color: red; cursor: pointer;"></i>
+                    </button>
                 </form>
             </td>
         </tr>
@@ -29,7 +32,7 @@
   <tfoot>
     <tr>
         <td colspan="{{ count($columns) }}">
-            <a  class="btn btn-primary" href="{{ route('user.create') }}">Crear Usuario</a>
+            <a  class="btn btn-primary" href="{{ route('user.create') }}">User Create</a>
         </td>
     <tr>
   </tfoot>

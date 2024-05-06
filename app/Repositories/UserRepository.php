@@ -2,13 +2,15 @@
 
 namespace App\Repositories;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface {
     public function all(){
-        return User::all();
+        $currentUser = Auth::user();
+        return User::where('id', '!=', $currentUser->id)->get();
     }
     public function find($id){
         try{
