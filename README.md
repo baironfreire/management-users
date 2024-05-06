@@ -66,30 +66,27 @@ Este proyecto ofrece una solución completa y confiable para la gestión de usua
 
 4. **Inicia los contenedores de Docker**:
     ```bash
-    docker-compose up -d
+    docker-compose up -d --build
     ```
-
-5. **Instala las dependencias PHP utilizando Composer**:
-    ```bash
-    docker-compose exec app composer install
-    ```
-
-6. **Genera una nueva clave de aplicación**:
+5. **Genera una nueva clave de aplicación**:
     ```bash
     docker-compose exec app php artisan key:generate
     ```
 
-7. **Ejecuta las migraciones de la base de datos**:
+6. **Ejecuta las migraciones de la base de datos**:
     ```bash
     docker-compose exec app php artisan migrate
     ```
-8. **Ejecuta apt install npm**:
+
+
+7. **Ingresa al contenedor de la app**:
     ```bash
-    docker-compose exec app apt install npm 
+    docker exec -it management-users_app_1 bash
     ```
-9. **Ejecuta php artisan server --host=0.0.0.0 --port=8000**:
+8. **Intalar plugin npm**:
     ```bash
-    docker-compose exec app php artisan serve --host=0.0.0.0 --port=8000 
+    npm install vite
+    npm run build
     ```
 
-10. **¡Listo!** Ahora puedes acceder a tu aplicación en [http://0.0.0.0:8000](http://0.0.0.0:8000).
+9. **¡Listo!** Ahora puedes acceder a tu aplicación en [http://0.0.0.0:8000](http://0.0.0.0:8000).
