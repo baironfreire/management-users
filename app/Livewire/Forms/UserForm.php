@@ -14,14 +14,15 @@ class UserForm extends Form
     #[Validate('required|min:5')]
     public $name = '';
  
-    #[Validate('required|min:5')]
+    #[Validate('min:5')]
     public $last_name = '';
 
     #[Validate('required|min:5')]
     public $email = '';
 
-    #[Validate('required|min:5')]
+    #[Validate('min:5')]
     public $phone_number = '';
+
 
     public function setUser(User $user)
     {
@@ -39,7 +40,24 @@ class UserForm extends Form
     public function update()
     {
         $this->user->update(
-            $this->all()
+            $this->validate([
+                'name' => 'required|min:5',
+                'last_name' => 'min:5',
+                'email' => 'required|min:5',
+                'phone_number' => 'min:5',
+            ])
+        );
+    }
+
+    public function save(){
+        $this->user->create(
+            $this->validate([
+                'name' => 'required|min:5',
+                'last_name' => 'min:5',
+                'email' => 'required|min:5',
+                'phone_number' => 'min:5',
+                'password' => 'required|min:5'
+            ])
         );
     }
 }

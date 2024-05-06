@@ -1,26 +1,23 @@
-<form method="POST" action="{{ route('user.store') }}">
-    @csrf
-
+<form wire:submit="save">
     <div class="row mb-3">
         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
         <div class="col-md-6">
-            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            @error('name')
+            <input  wire:model="form.name" id="name" type="text" class="form-control @error('form.name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
+            @error('form.name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
         </div>
     </div>
-
+ 
     <div class="row mb-3">
         <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
 
         <div class="col-md-6">
-            <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+            <input wire:model="form.last_name" id="last_name" type="text" class="form-control @error('form.last_name') is-invalid @enderror" name="last_name"  required autocomplete="last_name" autofocus>
 
-            @error('last_name')
+            @error('form.last_name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -29,12 +26,12 @@
     </div>
 
     <div class="row mb-3">
-        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
         <div class="col-md-6">
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            <input wire:model="form.email" id="email" type="text" class="form-control @error('form.email') is-invalid @enderror" name="email"  required autocomplete="email" autofocus>
 
-            @error('email')
+            @error('form.email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -46,9 +43,9 @@
         <label for="phone_number" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
         <div class="col-md-6">
-            <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+            <input wire:model="form.phone_number" id="phone_number" type="text" class="form-control @error('form.phone_number') is-invalid @enderror" name="phone_number"  required autocomplete="phone_number" autofocus>
 
-            @error('phone_number')
+            @error('form.phone_number')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -60,9 +57,9 @@
         <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
         <div class="col-md-6">
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <input wire:model="form.password" id="password" type="password" class="form-control @error('form.password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-            @error('password')
+            @error('form.password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -74,14 +71,17 @@
         <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
         <div class="col-md-6">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            <input wire:model="form.password-confirm" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </div>
     </div>
 
     <div class="row mb-0">
         <div class="col-md-6 offset-md-4">
             <button type="submit" class="btn btn-primary">
-                {{ __('Register') }}
+                {{ __('Save') }}
+            </button>
+            <button type="button" class="btn btn-secondary" wire:click="cancel">
+            {{ __('Cancel') }}
             </button>
         </div>
     </div>

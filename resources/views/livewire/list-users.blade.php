@@ -29,7 +29,7 @@
   <tfoot>
     <tr>
         <td colspan="{{ count($columns) }}">
-            <a  class="btn btn-primary" href="{{ route('register') }}">Crear Usuario</a>
+            <a  class="btn btn-primary" href="{{ route('user.create') }}">Crear Usuario</a>
         </td>
     <tr>
   </tfoot>
