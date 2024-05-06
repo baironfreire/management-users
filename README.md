@@ -83,5 +83,13 @@ Este proyecto ofrece una solución completa y confiable para la gestión de usua
     ```bash
     docker-compose exec app php artisan migrate
     ```
+8. **Ejecuta apt install npm**:
+    ```bash
+    docker-compose exec app apt install npm 
+    ```
+9. **Ejecuta php artisan server --host=0.0.0.0 --port=8000**:
+    ```bash
+    docker-compose exec app php artisan serve --host=0.0.0.0 --port=8000 
+    ```
 
-8. **¡Listo!** Ahora puedes acceder a tu aplicación en [http://localhost](http://localhost).
+10. **¡Listo!** Ahora puedes acceder a tu aplicación en [http://0.0.0.0:8000](http://0.0.0.0:8000).
