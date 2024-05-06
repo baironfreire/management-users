@@ -16,7 +16,7 @@ class ListUsers extends Component
 
     public function render()
     {
-        $columns = ['Nro', 'Name', 'Last Name', 'email', 'phone number', 'status', 'Actions'];
+        $columns = ['Nro', 'Name', 'Last Name', 'Email', 'Phone Number', 'Status', 'Actions'];
         return view('livewire.list-users', ['columns' => $columns]);
     }
 }
