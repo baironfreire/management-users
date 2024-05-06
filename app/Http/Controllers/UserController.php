@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user-register');
+        return view('user.register');
     }
 
     public function store(Request $request)
@@ -33,12 +33,13 @@ class UserController extends Controller
             'phone_number' => $request['phone_number'],
             'password' => Hash::make($request['password']),
         ]);
-        return view('list-user');
+        return redirect()->route('home');
     }
 
     public function edit($id)
     {
-        return view('user-register', ['id' => $id]);
+        $user = User::find($id);
+        return view('user-update', ['user' => $user]);
     }
 
     public function update(Request $request, $id)
@@ -48,7 +49,13 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        // Lógica para eliminar un usuario de la base de datos
+        $user = User::find($id);
+        if(!$user) {
+            return redirect()->route('users.index')->with('error', 'Usuario no encontrado');
+        }
+
+        $user->delete();
+        return redirect()->route('home');
     }
     
 }
