@@ -26,11 +26,11 @@ class UserCreateForm extends Component
     {
         $this->form->save();
  
-        return $this->redirect('/');
+        return $this->redirect('/home');
     }
 
     public function cancel()
     {
-        return redirect('/');
+        return redirect('/home');
     }
 }

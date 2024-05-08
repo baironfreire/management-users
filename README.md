@@ -1,92 +1,66 @@
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-  <a href="https://github.com/laravel/framework/actions">
-    <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
-  </a>
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Gestión de Usuarios
+## About Laravel
 
-Este proyecto, impulsado por tecnologías de vanguardia como PHP 8.2, MySQL 5.7, Livewire 3.4+, Docker y Laravel 11+, ofrece una solución completa y segura para la gestión de usuarios en aplicaciones web. Diseñado para la eficiencia y la escalabilidad, este sistema permite a los administradores crear, eliminar, actualizar y listar usuarios de manera intuitiva y eficaz.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-### Características Principales
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-- **Seguridad Robusta**: Implementación de las mejores prácticas de seguridad para proteger los datos sensibles de los usuarios.
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-- **Interfaz de Usuario Dinámica**: Utilización de Livewire 3.4+ para una experiencia de usuario fluida y sin interrupciones.
+## Learning Laravel
 
-- **Gestión Integral de Usuarios**: Funcionalidades completas para la creación, eliminación, actualización y listado de usuarios.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-- **Escalabilidad Dockerizada**: Utilización de contenedores Docker para facilitar la implementación y el despliegue en entornos de desarrollo, prueba y producción.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-- **Compatibilidad con las Últimas Versiones**: Construido con PHP 8.2 y Laravel 11+, garantizando compatibilidad con las últimas funcionalidades y mejoras de rendimiento.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Este proyecto ofrece una solución completa y confiable para la gestión de usuarios en aplicaciones web, permitiendo a los administradores administrar eficazmente los perfiles de usuario con total seguridad y facilidad de uso.
+## Laravel Sponsors
 
-## Dependencias
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-- PHP 8.2
-- MySQL 5.7
-- Laravel 11+
-- Livewire 3.4+
-- Docker
-- Docker Compose
+### Premium Partners
 
-## Instrucciones para Desplegar
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-1. **Clonar el Repositorio**: Clona el repositorio de GitHub en tu máquina local.
-    ```bash
-    git clone https://github.com/baironfreire/management-users.git
-    ```
+## Contributing
 
-2. **Navega al directorio del proyecto**:
-    ```bash
-    cd management-users
-    ```
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-3. **Crea un archivo .env**:
-    Copia el archivo de ejemplo .env.example y configura las variables de entorno según tu configuración.
-    ```bash
-    cp .env.example .env
-    ```
+## Code of Conduct
 
-4. **Inicia los contenedores de Docker**:
-    ```bash
-    docker-compose up -d --build
-    ```
-5. **Genera una nueva clave de aplicación**:
-    ```bash
-    docker-compose exec app php artisan key:generate
-    ```
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-6. **Ejecuta las migraciones de la base de datos**:
-    ```bash
-    docker-compose exec app php artisan migrate
-    ```
+## Security Vulnerabilities
 
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-7. **Ingresa al contenedor de la app**:
-    ```bash
-    docker exec -it management-users_app_1 bash
-    ```
-8. **Intalar plugin npm**:
-    ```bash
-    npm install vite
-    npm run build
-    ```
+## License
 
-9. **¡Listo!** Ahora puedes acceder a tu aplicación en [http://0.0.0.0:8000](http://0.0.0.0:8000).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

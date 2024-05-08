@@ -3,6 +3,9 @@
 namespace App\Livewire\Forms;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
+
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Models\User;
@@ -22,7 +25,10 @@ class UserForm extends Form
 
     public $phone_number = '';
 
-    public $password = '';
+    public $password = null;
+
+    public $password_confirmation = null;
+
 
     public function __construct($id, $data)
     {
@@ -50,14 +56,30 @@ class UserForm extends Form
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',
-                'email' => 'required|min:5|email',
+                'email' => 'required|min:5|email|unique:users,email,'. $this->user->id,
                 'phone_number' => 'min:5',
+                'password' => 'nullable|string|min:8|confirmed', 
+                
             ])
         );
     }
 
     public function save(){
         $this->userController->store(
+            $this->validate([
+                'name' => 'required|min:5',
+                'last_name' => 'min:5',
+                'email' => 'required|min:5|email|unique:users,email',
+                'phone_number' => 'min:5',
+                'password' => 'nullable|string|min:8|confirmed', 
+            ])
+        );
+    }
+
+    public function register(){
+        $url = route('register');
+     
+        $this->userController->register(
             $this->validate([
                 'name' => 'required|min:5',
                 'last_name' => 'min:5',

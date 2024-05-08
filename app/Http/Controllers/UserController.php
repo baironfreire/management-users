@@ -17,6 +17,7 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    
     public function index(){
         $users =  $this->userService->getAllUsers();
         return view('user-index', ['users' => $users]);
@@ -33,22 +34,34 @@ class UserController extends Controller
     }
 
     public function store($data){
-        return $this->userService->createUser($data);
+        return $this->userService->createUser([
+            'name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'password' => isset($data['password']) ? Hash::make($data['password']) : null,
+        ]);
     }
 
     public function update($id, $data){
-        return $this->userService->updateUser($id, $data);
+        return $this->userService->updateUser($id, array_filter([
+            'name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'password' => isset($data['password']) ? Hash::make($data['password']) : null,
+        ]));
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
         if(!$user) {
-            return redirect('/')->with('error', 'Usuario no encontrado');
+            return redirect('/home')->with('error', 'Usuario no encontrado');
         }
 
         $this->userService->deleteUser($id);
-        return redirect('/');
+        return redirect('/home');
     }
     
 }
